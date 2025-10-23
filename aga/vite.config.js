@@ -10,6 +10,8 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'src/index.html'),
+        about: resolve(__dirname, 'src/about-the-association.html'),
+        contact: resolve(__dirname, 'src/contact.html'),
       }
     },
     minify: 'terser',

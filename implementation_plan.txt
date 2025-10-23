@@ -1,0 +1,796 @@
+# AGA Website Modern Redesign - Implementation Plan
+
+## Executive Summary
+This document outlines the complete implementation strategy for modernizing the American Genetic Association (AGA) website from a legacy system to a modern, standards-compliant static site. The new implementation will maintain all existing functionality while dramatically improving performance, accessibility, maintainability, and user experience.
+
+## Current State Analysis
+
+### Legacy System Overview
+- **Technology**: HTML with jQuery-based Pop Menu Magic 3 and Tab Panel systems
+- **Pages**: 34 main pages + 28 news articles
+- **Backend**: Laravel/Livewire (to be replaced with static generation)
+- **Styling**: Custom CSS with outdated practices
+- **JavaScript**: 3,154 lines of legacy code
+- **Integrations**: Stripe payments, Google reCAPTCHA, Google Analytics
+
+### Content Inventory
+- **Total Files**: 228 files across organized directories
+- **Images**: 48 media assets
+- **PDFs**: 7 document downloads
+- **Forms**: 5 interactive forms (awards, registration, donations)
+- **Dynamic Features**: User authentication, payment processing, form submissions
+
+## Technology Stack Selection
+
+### Build Tools & Framework
+**Choice: Vite + Static Site Generation**
+- **Rationale**: Vite provides lightning-fast development with HMR (Hot Module Replacement) and optimized production builds. No runtime dependencies required.
+- **Benefits**:
+  - Instant server start
+  - Fast builds with Rollup
+  - Native ES modules
+  - Built-in asset optimization
+  - Simple configuration
+
+### Styling Solution
+**Choice: Tailwind CSS v3**
+- **Rationale**: Utility-first approach reduces CSS bloat and improves maintainability
+- **Benefits**:
+  - No more naming conventions debates
+  - Consistent spacing and sizing
+  - Built-in responsive utilities
+  - Tree-shaking removes unused styles
+  - Dark mode support out-of-the-box
+
+### JavaScript Approach
+**Choice: Vanilla ES6+ Modules**
+- **Rationale**: Modern browsers support ES6+ natively; no framework overhead needed
+- **Benefits**:
+  - Zero framework dependencies
+  - Smaller bundle size
+  - Better performance
+  - Easier long-term maintenance
+  - Native web platform features
+
+### Form Handling
+**Choice: Formspree (External Service)**
+- **Rationale**: No backend required, reliable delivery, spam protection
+- **Implementation**: Simple HTML form attributes
+- **Features**: Email notifications, submissions archive, reCAPTCHA support
+
+### Payment Processing
+**Choice: Stripe Checkout (Hosted)**
+- **Rationale**: PCI compliance handled by Stripe, no sensitive data on our servers
+- **Implementation**: Redirect to Stripe-hosted payment page
+- **Features**: Subscription support, one-time payments, receipt handling
+
+### Static Search
+**Choice: Pagefind**
+- **Rationale**: Client-side search with no backend required
+- **Benefits**: Fast indexing, small bundle size, great UX
+
+## Architecture Design
+
+### Directory Structure
+```
+aga-website/
+├── src/
+│   ├── layouts/
+│   │   ├── base.html
+│   │   ├── page.html
+│   │   └── article.html
+│   ├── components/
+│   │   ├── navigation/
+│   │   ├── forms/
+│   │   ├── cards/
+│   │   └── common/
+│   ├── pages/
+│   │   ├── index.html
+│   │   ├── about/
+│   │   ├── membership/
+│   │   ├── symposium/
+│   │   ├── awards/
+│   │   └── journal/
+│   ├── styles/
+│   │   ├── main.css
+│   │   ├── tailwind.css
+│   │   └── components/
+│   ├── scripts/
+│   │   ├── main.js
+│   │   ├── modules/
+│   │   └── utils/
+│   └── assets/
+│       ├── images/
+│       ├── documents/
+│       └── fonts/
+├── content/
+│   ├── news/
+│   ├── symposia/
+│   └── data/
+├── public/
+│   └── (static assets)
+├── dist/
+│   └── (build output)
+└── config/
+    ├── vite.config.js
+    ├── tailwind.config.js
+    └── postcss.config.js
+```
+
+### Component Architecture
+
+#### Navigation Component
+```javascript
+// Modern dropdown navigation without jQuery
+class Navigation {
+  - Mobile responsive menu toggle
+  - Accessible keyboard navigation
+  - Touch-friendly dropdowns
+  - Smooth animations with CSS transitions
+  - Active page highlighting
+}
+```
+
+#### Form Components
+```javascript
+// Reusable form modules
+class FormHandler {
+  - Client-side validation
+  - Formspree integration
+  - Loading states
+  - Error handling
+  - Success notifications
+}
+```
+
+#### Content Components
+```javascript
+// Tab panels, accordions, galleries
+class ContentModules {
+  - Tab panels with arrow navigation
+  - Image galleries with lazy loading
+  - Accordion sections
+  - Smooth scroll to section
+  - Content carousels
+}
+```
+
+## Implementation Phases
+
+### Phase 1: Project Foundation (Week 1)
+1. **Environment Setup**
+   - Initialize Vite project
+   - Configure Tailwind CSS
+   - Set up PostCSS pipeline
+   - Create build scripts
+   - Configure development server
+
+2. **Design System Creation**
+   - Define color palette based on AGA branding
+   - Set up typography scale
+   - Create spacing system
+   - Design component library
+   - Build style guide page
+
+3. **Base Templates**
+   - Create HTML5 boilerplate
+   - Build responsive layout system
+   - Implement SEO meta tags structure
+   - Add structured data markup
+   - Set up asset pipeline
+
+### Phase 2: Core Components (Week 2-3)
+1. **Navigation System**
+   - Build responsive header
+   - Implement dropdown menus
+   - Create mobile navigation
+   - Add breadcrumb system
+   - Build footer component
+
+2. **Content Components**
+   - Card components for news/events
+   - Tab panel system
+   - Accordion components
+   - Image gallery with lightbox
+   - Video embed components
+
+3. **Form Components**
+   - Contact forms
+   - Award application forms
+   - Registration forms
+   - Newsletter signup
+   - Search interface
+
+### Phase 3: Page Development (Week 3-5)
+1. **Homepage**
+   - Hero section with mission statement
+   - Award announcements
+   - Tabbed content sections
+   - News highlights
+   - Call-to-action sections
+
+2. **Information Pages**
+   - About the Association
+   - Council members
+   - Bylaws and policies
+   - Contact information
+   - Membership benefits
+
+3. **Symposium Section**
+   - Current symposium page
+   - Archive pages (2014-2022)
+   - Speaker profiles
+   - Schedule displays
+   - Registration integration
+
+4. **Awards Section**
+   - EECG Awards information
+   - Special Event Awards
+   - Application forms
+   - Recipients showcase
+   - Submission guidelines
+
+5. **Journal Section**
+   - About the Journal
+   - Editorial board
+   - Submission guidelines
+   - Abstract displays
+   - Latest issues showcase
+
+### Phase 4: Content Migration (Week 5-6)
+1. **Content Processing**
+   - Extract content from legacy HTML
+   - Clean and sanitize markup
+   - Update semantic structure
+   - Optimize images
+   - Convert to modern formats
+
+2. **News Migration**
+   - Import 28 news articles
+   - Create article template
+   - Set up pagination
+   - Build category system
+   - Generate RSS feeds
+
+3. **Document Management**
+   - Organize PDF downloads
+   - Create download tracking
+   - Build document library
+   - Add search functionality
+
+### Phase 5: Feature Implementation (Week 6-7)
+1. **Search Functionality**
+   - Install Pagefind
+   - Configure search indexing
+   - Build search interface
+   - Implement filters
+   - Add search analytics
+
+2. **Payment Integration**
+   - Set up Stripe Checkout
+   - Create donation flow
+   - Build membership payment
+   - Add receipt handling
+   - Implement confirmation pages
+
+3. **Form Processing**
+   - Configure Formspree
+   - Set up email notifications
+   - Add spam protection
+   - Build thank you pages
+   - Create submission archives
+
+### Phase 6: Progressive Enhancement (Week 7-8)
+1. **Performance Optimization**
+   - Image optimization with WebP
+   - Lazy loading implementation
+   - Code splitting
+   - Bundle optimization
+   - CDN configuration
+
+2. **PWA Features**
+   - Service worker setup
+   - Offline functionality
+   - App manifest
+   - Install prompts
+   - Push notifications prep
+
+3. **Accessibility Compliance**
+   - ARIA labels and roles
+   - Keyboard navigation
+   - Screen reader testing
+   - Color contrast verification
+   - Focus management
+
+### Phase 7: Testing & Quality Assurance (Week 8-9)
+1. **Cross-browser Testing**
+   - Chrome, Firefox, Safari, Edge
+   - Mobile browsers
+   - Tablet testing
+   - Legacy browser fallbacks
+
+2. **Performance Testing**
+   - Lighthouse audits
+   - Core Web Vitals optimization
+   - Load time analysis
+   - Bundle size optimization
+
+3. **Accessibility Audit**
+   - WAVE testing
+   - axe DevTools audit
+   - Keyboard navigation test
+   - Screen reader testing
+
+4. **Content Review**
+   - Broken link checking
+   - Image alt text review
+   - SEO optimization
+   - Content accuracy verification
+
+### Phase 8: Deployment & Launch (Week 9-10)
+1. **Production Build**
+   - Generate static files
+   - Optimize assets
+   - Create sitemaps
+   - Generate robots.txt
+   - Build documentation
+
+2. **Server Configuration**
+   - Apache/nginx setup
+   - HTTPS configuration
+   - Compression settings
+   - Cache headers
+   - Redirect rules
+
+3. **Launch Preparation**
+   - DNS configuration
+   - SSL certificates
+   - Backup procedures
+   - Monitoring setup
+   - Analytics installation
+
+4. **Post-Launch**
+   - Monitor performance
+   - Track user feedback
+   - Fix any issues
+   - Document maintenance procedures
+   - Train content editors
+
+## Technical Specifications
+
+### HTML5 Standards
+```html
+<!-- Modern semantic structure -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Page description">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="/assets/css/main.css">
+</head>
+<body>
+  <header role="banner">
+    <nav role="navigation" aria-label="Main">
+      <!-- Navigation -->
+    </nav>
+  </header>
+  <main role="main">
+    <article>
+      <!-- Content -->
+    </article>
+  </main>
+  <footer role="contentinfo">
+    <!-- Footer -->
+  </footer>
+  <script type="module" src="/assets/js/main.js"></script>
+</body>
+</html>
+```
+
+### CSS Architecture
+```css
+/* Tailwind CSS with custom configuration */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  /* Custom component styles */
+  .btn-primary {
+    @apply px-6 py-3 bg-blue-600 text-white rounded-lg
+           hover:bg-blue-700 transition-colors duration-200
+           focus:outline-none focus:ring-2 focus:ring-blue-500;
+  }
+
+  .card {
+    @apply bg-white rounded-xl shadow-lg p-6
+           hover:shadow-xl transition-shadow duration-300;
+  }
+}
+
+@layer utilities {
+  /* Custom utilities */
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+```
+
+### JavaScript Modules
+```javascript
+// Modern ES6+ module structure
+// main.js
+import { Navigation } from './modules/navigation.js';
+import { FormHandler } from './modules/forms.js';
+import { TabPanel } from './modules/tabs.js';
+import { LazyLoad } from './modules/lazyload.js';
+
+// Initialize on DOM ready
+document.addEventListener('DOMContentLoaded', () => {
+  const nav = new Navigation();
+  const forms = new FormHandler();
+  const tabs = new TabPanel();
+  const lazy = new LazyLoad();
+
+  // Progressive enhancement
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js');
+  }
+});
+
+// navigation.js module example
+export class Navigation {
+  constructor() {
+    this.menu = document.querySelector('.nav-menu');
+    this.toggle = document.querySelector('.nav-toggle');
+    this.dropdowns = document.querySelectorAll('.dropdown');
+    this.init();
+  }
+
+  init() {
+    // Mobile menu toggle
+    this.toggle?.addEventListener('click', () => {
+      this.menu?.classList.toggle('active');
+      this.toggle.setAttribute('aria-expanded',
+        this.menu?.classList.contains('active') ? 'true' : 'false'
+      );
+    });
+
+    // Dropdown interactions
+    this.dropdowns.forEach(dropdown => {
+      const trigger = dropdown.querySelector('.dropdown-trigger');
+      const menu = dropdown.querySelector('.dropdown-menu');
+
+      // Keyboard navigation
+      trigger?.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          this.toggleDropdown(dropdown);
+        }
+      });
+
+      // Mouse interactions
+      trigger?.addEventListener('click', () => {
+        this.toggleDropdown(dropdown);
+      });
+    });
+
+    // Close dropdowns on outside click
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.dropdown')) {
+        this.closeAllDropdowns();
+      }
+    });
+  }
+
+  toggleDropdown(dropdown) {
+    const isOpen = dropdown.classList.contains('open');
+    this.closeAllDropdowns();
+    if (!isOpen) {
+      dropdown.classList.add('open');
+      dropdown.querySelector('.dropdown-trigger')
+        ?.setAttribute('aria-expanded', 'true');
+    }
+  }
+
+  closeAllDropdowns() {
+    this.dropdowns.forEach(dropdown => {
+      dropdown.classList.remove('open');
+      dropdown.querySelector('.dropdown-trigger')
+        ?.setAttribute('aria-expanded', 'false');
+    });
+  }
+}
+```
+
+### Build Configuration
+```javascript
+// vite.config.js
+import { defineConfig } from 'vite';
+import { resolve } from 'path';
+import htmlPurge from 'vite-plugin-html-purge';
+
+export default defineConfig({
+  root: 'src',
+  build: {
+    outDir: '../dist',
+    rollupOptions: {
+      input: {
+        main: resolve(__dirname, 'src/index.html'),
+        about: resolve(__dirname, 'src/pages/about.html'),
+        // ... all other pages
+      }
+    },
+    minify: 'terser',
+    cssCodeSplit: false,
+  },
+  plugins: [
+    htmlPurge(),
+  ],
+  server: {
+    port: 3000,
+    open: true
+  }
+});
+
+// tailwind.config.js
+module.exports = {
+  content: [
+    "./src/**/*.{html,js}",
+  ],
+  theme: {
+    extend: {
+      colors: {
+        'aga-blue': '#0777b9',
+        'aga-dark': '#1a1a1a',
+        'aga-gray': '#4a5568',
+      },
+      fontFamily: {
+        'sans': ['Inter', 'system-ui', 'sans-serif'],
+        'display': ['Cabin Condensed', 'sans-serif'],
+      },
+      animation: {
+        'fade-in': 'fadeIn 0.5s ease-in',
+        'slide-down': 'slideDown 0.3s ease-out',
+      }
+    },
+  },
+  plugins: [
+    require('@tailwindcss/forms'),
+    require('@tailwindcss/typography'),
+  ],
+}
+```
+
+## Performance Targets
+
+### Core Web Vitals Goals
+- **LCP (Largest Contentful Paint)**: < 2.5s
+- **FID (First Input Delay)**: < 100ms
+- **CLS (Cumulative Layout Shift)**: < 0.1
+- **FCP (First Contentful Paint)**: < 1.8s
+- **TTI (Time to Interactive)**: < 3.8s
+
+### Optimization Strategies
+1. **Image Optimization**
+   - Convert to WebP format
+   - Implement responsive images
+   - Lazy loading for below-fold images
+   - Proper sizing and compression
+   - CDN delivery
+
+2. **Code Optimization**
+   - Tree shaking unused code
+   - Minification and compression
+   - Code splitting by route
+   - Async/defer script loading
+   - Critical CSS inlining
+
+3. **Caching Strategy**
+   - Service worker caching
+   - Browser cache headers
+   - Static asset versioning
+   - CDN caching
+   - Offline fallbacks
+
+## Accessibility Requirements
+
+### WCAG 2.1 Level AA Compliance
+1. **Perceivable**
+   - Text contrast ratios (4.5:1 normal, 3:1 large)
+   - Alt text for all images
+   - Captions for videos
+   - Responsive text sizing
+
+2. **Operable**
+   - Keyboard navigation for all features
+   - Skip navigation links
+   - Focus indicators
+   - No keyboard traps
+   - Sufficient time limits
+
+3. **Understandable**
+   - Consistent navigation
+   - Clear error messages
+   - Form labels and instructions
+   - Predictable functionality
+
+4. **Robust**
+   - Valid HTML markup
+   - ARIA labels where needed
+   - Compatible with assistive tech
+   - Progressive enhancement
+
+## SEO Implementation
+
+### Technical SEO
+1. **Meta Tags**
+   - Unique title tags (50-60 chars)
+   - Meta descriptions (150-160 chars)
+   - Open Graph tags
+   - Twitter Card tags
+   - Canonical URLs
+
+2. **Structured Data**
+   - Organization schema
+   - Event schema for symposiums
+   - Article schema for news
+   - BreadcrumbList schema
+   - FAQ schema
+
+3. **Performance SEO**
+   - Fast page loads
+   - Mobile-friendly design
+   - HTTPS everywhere
+   - XML sitemap
+   - Robots.txt
+
+### Content SEO
+1. **URL Structure**
+   - Descriptive URLs
+   - Proper hierarchy
+   - No duplicate content
+   - 301 redirects for old URLs
+
+2. **Internal Linking**
+   - Logical site structure
+   - Breadcrumb navigation
+   - Related content links
+   - Sitemap page
+
+## Security Considerations
+
+### Best Practices
+1. **Content Security Policy**
+   ```html
+   <meta http-equiv="Content-Security-Policy"
+         content="default-src 'self';
+                  script-src 'self' 'unsafe-inline' https://js.stripe.com;
+                  style-src 'self' 'unsafe-inline';">
+   ```
+
+2. **Form Security**
+   - CSRF protection via Formspree
+   - reCAPTCHA implementation
+   - Input validation
+   - XSS prevention
+
+3. **HTTPS Configuration**
+   - Force HTTPS redirect
+   - HSTS headers
+   - Secure cookies
+   - Mixed content prevention
+
+## Maintenance & Documentation
+
+### Content Management
+1. **Static Content Updates**
+   - Markdown files for news articles
+   - JSON data for dynamic content
+   - Image upload procedures
+   - Build and deploy process
+
+2. **Documentation**
+   - Code documentation
+   - Component library
+   - Style guide
+   - Deployment guide
+   - Content editor guide
+
+### Monitoring & Analytics
+1. **Performance Monitoring**
+   - Google Analytics 4
+   - Core Web Vitals tracking
+   - Error logging
+   - Uptime monitoring
+
+2. **User Analytics**
+   - Page views and sessions
+   - User flow analysis
+   - Form conversion tracking
+   - Search query analysis
+
+## Risk Mitigation
+
+### Potential Challenges
+1. **Content Migration Complexity**
+   - Solution: Automated extraction scripts
+   - Manual review process
+   - Staged migration approach
+
+2. **Form Handling Without Backend**
+   - Solution: Formspree integration
+   - Fallback email links
+   - Clear instructions for users
+
+3. **Payment Processing**
+   - Solution: Stripe Checkout redirect
+   - Clear payment flow
+   - Secure handling
+
+4. **Search Functionality**
+   - Solution: Pagefind static search
+   - Fallback to Google Custom Search
+   - Regular index updates
+
+## Success Metrics
+
+### Key Performance Indicators
+1. **Technical Metrics**
+   - Page load time < 3 seconds
+   - Lighthouse score > 90
+   - Zero accessibility errors
+   - Mobile responsiveness score 100%
+
+2. **User Engagement**
+   - Reduced bounce rate
+   - Increased session duration
+   - Higher conversion rates
+   - Improved user satisfaction
+
+3. **Business Goals**
+   - Increased membership signups
+   - More award applications
+   - Higher donation conversions
+   - Better content engagement
+
+## Timeline Summary
+
+- **Week 1**: Foundation & Setup
+- **Week 2-3**: Core Components
+- **Week 3-5**: Page Development
+- **Week 5-6**: Content Migration
+- **Week 6-7**: Feature Implementation
+- **Week 7-8**: Progressive Enhancement
+- **Week 8-9**: Testing & QA
+- **Week 9-10**: Deployment & Launch
+
+## Budget Considerations
+
+### One-Time Costs
+- Development time (10 weeks)
+- Third-party service setup
+- Asset optimization tools
+- Testing tools and services
+
+### Ongoing Costs
+- Formspree ($10-50/month)
+- Hosting (varies)
+- Domain renewal
+- SSL certificate (often free)
+- Maintenance and updates
+
+## Conclusion
+
+This implementation plan provides a comprehensive roadmap for modernizing the AGA website into a fast, accessible, and maintainable static site. By leveraging modern web standards and best practices while eliminating backend dependencies, we create a sustainable solution that serves the organization's needs effectively.
+
+The static site approach ensures:
+- Maximum performance and reliability
+- Minimal hosting requirements
+- Enhanced security
+- Easy maintenance
+- Lower long-term costs
+
+Following this plan will result in a modern web presence that serves the AGA community effectively while providing an excellent user experience across all devices and platforms.
