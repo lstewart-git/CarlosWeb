@@ -1,0 +1,351 @@
+================================================================================
+                    CLAUDE CODE CHEATSHEET FOR BEGINNERS
+================================================================================
+
+TABLE OF CONTENTS
+-----------------
+1. Essential Commands
+2. Plan Mode
+3. Working with Files
+4. Search and Navigation
+5. Git Operations
+6. Agents and Tasks
+7. Pro Tips & Best Practices
+
+================================================================================
+1. ESSENTIAL COMMANDS
+================================================================================
+
+/help                   - Get help with Claude Code
+/clear                  - Clear conversation history
+/model                  - Change the AI model
+/cost                   - View usage and cost information
+/bashes                 - List running background shells
+/settings               - View/modify Claude Code settings
+/fetch <url>            - Fetch content from a URL
+/retry                  - Retry the last request
+
+NOTE: Type '/' to see all available commands with autocomplete
+
+================================================================================
+2. PLAN MODE
+================================================================================
+
+WHAT IS PLAN MODE?
+Plan mode lets Claude create a plan without executing it, giving you a chance
+to review and approve before any changes are made.
+
+HOW TO USE:
+- Start your request with "plan:" or click the plan mode toggle
+- Claude will research and create a detailed plan
+- Review the plan and approve/modify it
+- Claude will then execute the approved plan
+
+EXAMPLE:
+  You: plan: refactor the authentication system to use JWT tokens
+  Claude: [Creates detailed plan with steps]
+  You: [Reviews and approves]
+  Claude: [Executes the plan]
+
+WHEN TO USE PLAN MODE:
+✓ Large refactoring tasks
+✓ Complex multi-file changes
+✓ New feature implementations
+✓ When you want to review approach first
+✓ Unfamiliar codebases
+
+WHEN NOT TO USE:
+✗ Simple, single-file edits
+✗ Quick bug fixes
+✗ Just asking questions
+✗ Reading/exploring code
+
+================================================================================
+3. WORKING WITH FILES
+================================================================================
+
+READING FILES:
+- Just mention the file path: "Show me src/index.js"
+- Claude can read any file you reference
+- Multiple files: "Compare index.js and app.js"
+
+EDITING FILES:
+- Claude will automatically read before editing
+- Be specific: "Change the button color to blue in styles.css"
+- Claude uses exact string replacement for edits
+
+CREATING FILES:
+- Be explicit: "Create a new file called utils.js"
+- Claude prefers editing existing files over creating new ones
+- Provide the full path for new files
+
+FILE PATHS:
+- Always use absolute paths in tool calls
+- Relative paths work in natural language
+- Use tab completion for paths
+
+================================================================================
+4. SEARCH AND NAVIGATION
+================================================================================
+
+FINDING FILES:
+- "Find all TypeScript files in src/"
+- "Show me files matching *.test.js"
+- Claude uses glob patterns (e.g., "**/*.tsx")
+
+SEARCHING CONTENT:
+- "Search for the function calculateTotal"
+- "Find all uses of the API_KEY variable"
+- "Show me TODO comments in the codebase"
+
+EXPLORING CODEBASE:
+- "How does authentication work in this project?"
+- "Where are error handlers defined?"
+- Claude will use specialized Explore agents for complex searches
+
+PRO TIP: For open-ended exploration, let Claude use the Task/Explore agent
+rather than running individual searches.
+
+================================================================================
+5. GIT OPERATIONS
+================================================================================
+
+CHECKING STATUS:
+- "What's the git status?"
+- "Show me uncommitted changes"
+- "What branch am I on?"
+
+COMMITTING CHANGES:
+- "Create a commit with these changes"
+- Claude will:
+  1. Check git status
+  2. Review git diff
+  3. Check commit history for style
+  4. Create an appropriate commit message
+  5. Add files and commit
+- DO NOT manually push unless asked
+
+CREATING PULL REQUESTS:
+- "Create a PR for this feature"
+- Claude will use 'gh' CLI to create PRs
+- Includes summary and test plan
+
+GITHUB OPERATIONS:
+- Use 'gh' command for all GitHub tasks
+- "Check CI status for this PR"
+- "List open issues"
+
+GIT SAFETY:
+- Claude NEVER runs destructive commands without confirmation
+- No force pushes to main/master
+- No config changes
+- No --no-verify flags
+
+================================================================================
+6. AGENTS AND TASKS
+================================================================================
+
+WHAT ARE AGENTS?
+Specialized sub-agents that Claude can launch for specific tasks.
+
+AGENT TYPES:
+- general-purpose: Complex multi-step tasks, research
+- Explore: Fast codebase exploration, finding patterns
+- statusline-setup: Configure status line settings
+- output-style-setup: Create output styles
+
+WHEN CLAUDE USES AGENTS:
+- Complex searches requiring multiple attempts
+- "Where are all the API endpoints defined?"
+- Multi-step tasks with dependencies
+- Background research tasks
+
+YOU CAN REQUEST AGENTS:
+- "Use an agent to find all database queries"
+- "Launch an explore agent to understand the auth flow"
+
+PARALLEL EXECUTION:
+- Claude can run multiple agents simultaneously
+- More efficient for independent tasks
+- "Search for both the login and logout handlers"
+
+================================================================================
+7. PRO TIPS & BEST PRACTICES
+================================================================================
+
+GETTING THE MOST OUT OF CLAUDE CODE
+------------------------------------
+
+1. BE SPECIFIC
+   Bad:  "Fix the bug"
+   Good: "Fix the null pointer error in getUserData() at line 42"
+
+2. PROVIDE CONTEXT
+   - Share error messages in full
+   - Mention what you've already tried
+   - Explain the expected vs actual behavior
+
+3. USE PLAN MODE FOR BIG CHANGES
+   - Review the approach before execution
+   - Catch issues early
+   - Understand what will change
+
+4. LET CLAUDE USE TOOLS
+   - Don't manually paste file contents
+   - Let Claude read files directly
+   - Let Claude search and explore
+
+5. BREAK DOWN LARGE TASKS
+   - "First, let's refactor the auth module"
+   - "Then we'll update the tests"
+   - Easier to review and validate
+
+6. PROVIDE FEEDBACK
+   - Report issues at: https://github.com/anthropics/claude-code/issues
+   - Claude learns from corrections
+   - Be specific about what didn't work
+
+7. USE TODO LISTS
+   - Claude tracks tasks with TodoWrite
+   - Helps you see progress
+   - Ensures nothing is forgotten
+
+8. PARALLEL OPERATIONS
+   - "Run these tests in parallel"
+   - Faster for independent operations
+   - Claude will use multiple tool calls
+
+9. ASK FOR EXPLANATIONS
+   - "Explain how this authentication works"
+   - "What does this function do?"
+   - Understanding before changing
+
+10. LEVERAGE WEB FEATURES
+    - "Search for React 18 best practices"
+    - "Fetch the latest docs for this library"
+    - Get current information
+
+COMMON WORKFLOWS
+-----------------
+
+DEBUGGING:
+1. Describe the issue with error messages
+2. Let Claude read relevant files
+3. Claude proposes fixes
+4. Review and apply
+
+NEW FEATURE:
+1. Use plan mode: "plan: add dark mode toggle"
+2. Review the plan
+3. Approve execution
+4. Test and iterate
+
+REFACTORING:
+1. Use plan mode for the approach
+2. Break into smaller steps if needed
+3. Run tests between changes
+4. Commit incrementally
+
+CODE REVIEW:
+1. "Review the changes in src/auth/"
+2. Claude analyzes code quality
+3. Suggests improvements
+4. Discusses trade-offs
+
+KEYBOARD SHORTCUTS (Terminal Specific)
+---------------------------------------
+Ctrl+C - Cancel current operation
+Ctrl+D - Exit Claude Code
+Tab    - Autocomplete commands/paths
+↑/↓    - Navigate command history
+
+UNDERSTANDING OUTPUT
+--------------------
+- Text outside tool calls = Claude talking to you
+- Tool results show what Claude discovered
+- <system-reminder> tags = helpful hints (can ignore)
+- Markdown formatting = better readability
+
+WHEN CLAUDE CAN'T HELP
+-----------------------
+✗ Access external services without credentials
+✗ Modify files outside the working directory
+✗ Execute destructive operations without confirmation
+✗ Generate harmful or malicious code
+
+GETTING UNSTUCK
+---------------
+- If Claude seems confused, /clear and start fresh
+- Provide more context or examples
+- Try rephrasing your request
+- Use plan mode to align on approach
+- Ask Claude to explain its reasoning
+
+WORKING WITH ERRORS
+-------------------
+- Share the full error message
+- Mention when the error occurs
+- Show relevant code context
+- Explain what you expected
+
+MANAGING LONG CONVERSATIONS
+----------------------------
+- Use /clear when switching topics
+- Break large projects into sessions
+- Commit frequently to save progress
+- Use plan mode to recap goals
+
+FILE ORGANIZATION
+-----------------
+- Claude respects your project structure
+- Won't create unnecessary files
+- Prefers editing over creating
+- Follows existing naming conventions
+
+TESTING
+-------
+- "Run the tests for this module"
+- "Fix any failing tests"
+- Claude can interpret test output
+- Can suggest test cases
+
+DOCUMENTATION
+-------------
+- "Add JSDoc comments to this function"
+- "Create a README for this module"
+- "Explain this API endpoint"
+
+CODE QUALITY
+------------
+- "Check for code smells in this file"
+- "Suggest performance improvements"
+- "Make this more readable"
+- "Follow the style guide"
+
+LEARNING THE CODEBASE
+----------------------
+- Ask questions about architecture
+- Request flowcharts or explanations
+- "How does feature X work?"
+- "What's the dependency between A and B?"
+
+REMEMBER
+--------
+→ Claude Code is collaborative - work together!
+→ Plan mode is your friend for complex tasks
+→ Be specific about what you want
+→ Review changes before committing
+→ Ask questions when unclear
+→ Provide feedback to improve Claude Code
+
+================================================================================
+                              NEED MORE HELP?
+================================================================================
+
+Documentation: https://docs.claude.com/en/docs/claude-code
+Issues/Feedback: https://github.com/anthropics/claude-code/issues
+Help Command: /help
+
+Happy Coding! 🚀
+
+================================================================================
