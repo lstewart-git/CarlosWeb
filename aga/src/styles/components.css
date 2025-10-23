@@ -1,0 +1,139 @@
+/* Navigation Styles */
+.nav-menu {
+  @apply hidden md:block;
+}
+
+.nav-menu.mobile-open {
+  @apply block fixed inset-0 top-20 bg-aga-blue z-40 overflow-y-auto;
+}
+
+.nav-menu ul {
+  @apply list-none m-0 p-0;
+}
+
+.nav-menu > ul {
+  @apply md:flex md:flex-wrap md:justify-start;
+}
+
+.nav-menu > ul > li {
+  @apply relative;
+}
+
+.nav-menu a {
+  @apply text-white no-underline;
+}
+
+/* Dropdown Styles */
+.dropdown {
+  @apply relative;
+}
+
+.dropdown-trigger {
+  @apply cursor-pointer select-none;
+}
+
+.dropdown-menu {
+  @apply hidden absolute left-0 top-full min-w-[200px] bg-aga-blue-light shadow-lg rounded-b-lg z-50;
+  @apply md:block md:invisible md:opacity-0 md:translate-y-[-10px] transition-all duration-200;
+}
+
+.dropdown.open > .dropdown-menu,
+.dropdown:hover > .dropdown-menu {
+  @apply md:visible md:opacity-100 md:translate-y-0;
+}
+
+.mobile-open .dropdown-menu {
+  @apply block visible opacity-100 translate-y-0 relative shadow-none;
+}
+
+.dropdown-menu li {
+  @apply border-b border-white/20 last:border-b-0;
+}
+
+.dropdown-menu a {
+  @apply block px-4 py-3 hover:bg-white/10 transition-colors;
+}
+
+/* Submenu Styles */
+.dropdown-submenu {
+  @apply relative;
+}
+
+.dropdown-submenu > ul {
+  @apply hidden md:absolute md:left-full md:top-0 bg-aga-blue shadow-lg rounded-lg min-w-[200px];
+  @apply md:invisible md:opacity-0 transition-all duration-200;
+}
+
+.dropdown-submenu:hover > ul {
+  @apply md:visible md:opacity-100;
+}
+
+.mobile-open .dropdown-submenu > ul {
+  @apply block relative left-0 top-0 shadow-none bg-aga-dark/30 ml-4;
+}
+
+/* Tab Styles */
+[data-tabs] [data-tab] {
+  @apply transition-all duration-200;
+}
+
+[data-tabs] [data-tab].active {
+  @apply text-aga-blue border-aga-blue;
+}
+
+[data-tabs] [data-panel] {
+  @apply hidden;
+}
+
+[data-tabs] [data-panel].active {
+  @apply block animate-fade-in;
+}
+
+/* Mobile Navigation Toggle */
+.nav-toggle {
+  @apply focus:outline-none focus:ring-2 focus:ring-white rounded;
+}
+
+/* Card Hover Effects */
+.card:hover {
+  @apply transform scale-[1.01] transition-transform duration-200;
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Loading State */
+body.loading {
+  @apply opacity-0;
+}
+
+body {
+  @apply transition-opacity duration-300;
+}
+
+/* Responsive Images */
+img {
+  @apply max-w-full h-auto;
+}
+
+/* Focus Styles for Accessibility */
+a:focus,
+button:focus {
+  @apply outline-2 outline-offset-2 outline-aga-blue;
+}
+
+/* Print Styles */
+@media print {
+  header,
+  footer,
+  .nav-menu,
+  .btn {
+    @apply hidden;
+  }
+
+  .card {
+    @apply shadow-none border border-gray-300;
+  }
+}

@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The American Genetic Association encourages the study of comparative genetics and genomics, and promotes the application of genetic and genomic methods to the documentation, conservation, and management of organismal diversity.">
+    <title>The American Genetic Association</title>
+
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="./styles/main.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/images/logo.jpg">
+</head>
+<body class="loading">
+    <!-- Header -->
+    <header class="bg-aga-blue shadow-lg sticky top-0 z-50">
+        <div class="container-custom">
+            <div class="flex items-center justify-between py-4">
+                <!-- Logo -->
+                <div class="logo">
+                    <a href="index.html" class="flex items-center">
+                        <img src="/images/logo.jpg" alt="American Genetic Association" class="h-16 md:h-20">
+                    </a>
+                </div>
+
+                <!-- Mobile menu toggle -->
+                <button class="nav-toggle md:hidden text-white p-2" aria-expanded="false" aria-label="Toggle navigation menu">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+
+                <!-- Desktop: Social Media & Login -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <a href="https://twitter.com/theAGA_org" target="_blank" rel="noopener" class="hover:opacity-80 transition-opacity">
+                        <img src="/images/twitter.png" alt="Twitter" class="h-8">
+                    </a>
+                    <a href="https://www.facebook.com/theAGA.org/" target="_blank" rel="noopener" class="hover:opacity-80 transition-opacity">
+                        <img src="/images/facebook.gif" alt="Facebook" class="h-8">
+                    </a>
+                    <a href="https://www.instagram.com/theaga_org/" target="_blank" rel="noopener" class="hover:opacity-80 transition-opacity">
+                        <img src="/images/instagram.png" alt="Instagram" class="h-8">
+                    </a>
+                    <a href="members.html" class="btn btn-primary ml-4">Join the AGA</a>
+                    <a href="login.html" class="text-white font-bold hover:text-aga-blue-light">Login</a>
+                </div>
+            </div>
+
+            <!-- Navigation Menu -->
+            <nav class="nav-menu" role="navigation" aria-label="Main navigation">
+                <ul class="md:flex md:space-x-1 text-sm lg:text-base">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-trigger nav-link block" aria-expanded="false">About</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="about-the-association.html">About the Association</a></li>
+                            <li><a href="council.html">Council</a></li>
+                            <li><a href="bylaws.html">Bylaws and Policies</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="membership.html" class="nav-link block">Membership</a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-trigger nav-link block" aria-expanded="false">President's Symposium</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="key-lecture.html">The AGA Distinguished Lecturers</a></li>
+                            <li><a href="presidents.html">AGA Presidents and Symposia Titles</a></li>
+                            <li class="dropdown-submenu">
+                                <a href="#">Previous President's Symposia details</a>
+                                <ul>
+                                    <li><a href="agatwentytwentytwo.html">AGA 2022 Symposium</a></li>
+                                    <li><a href="agatwentytwentyone.html">AGA 2021 Symposium</a></li>
+                                    <li><a href="agatwentytwenty.html">AGA 2020 Symposium</a></li>
+                                    <li><a href="agatwentynineteen.html">AGA 2019 Symposium</a></li>
+                                    <li><a href="program-adaptive-radiation.html">AGA 2018 Symposium</a></li>
+                                    <li><a href="program-genetic-arch.html">AGA 2017 Symposium</a></li>
+                                    <li><a href="aga-local-adapt.html">AGA 2016 symposium</a></li>
+                                    <li><a href="aga-chrom-evol.html">AGA 2015 symposium</a></li>
+                                    <li><a href="aga-evolandplasticity.html">AGA 2014 symposium</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="conf-policies.html">AGA Conference Policies</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-trigger nav-link block" aria-expanded="false">Awards Available</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="eecg-awards-form.html">EECG Awards</a></li>
+                            <li><a href="special-event-awards-form.html">Special Event Awards</a></li>
+                            <li><a href="news/award-recipients.html">Award Recipients</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-trigger nav-link block" aria-expanded="false">Blog</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="https://blog.theaga.org/" target="_blank" rel="noopener">Blog</a></li>
+                            <li><a href="submission-guidelines.html">Submission Guidelines</a></li>
+                            <li><a href="about-blog.html">About the Blog</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-trigger nav-link block" aria-expanded="false">Journal of Heredity</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="about-the-journal.html">About the Journal</a></li>
+                            <li><a href="editors.html">Editors</a></li>
+                            <li><a href="anjanette-bio.html">Managing Editor</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="contact.html" class="nav-link block">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container-custom py-8">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Left Column - Main Content -->
+            <div class="lg:col-span-2 space-y-8">
+                <!-- Mission Statement -->
+                <section class="card">
+                    <div class="card-body">
+                        <h1 class="text-3xl md:text-4xl font-bold text-center mb-6">AGA Mission</h1>
+
+                        <h2 class="text-xl md:text-2xl text-center mb-6 text-gray-700">
+                            The mission of the American Genetic Association is to encourage the study of comparative genetics and genomics, and to promote the application of genetic and genomic methods to the documentation, conservation, and management of organismal diversity.
+                        </h2>
+
+                        <div class="prose max-w-none">
+                            <p>We are committed to accomplishing this mission together with the most inclusive group of members and contributors possible, unrestricted by race, gender, sexuality, religion, political affiliation, or background. We have worked and will continue to work to broaden participation in this field to reflect the diversity of our broader community. We adamantly oppose any forms of discrimination, and we enthusiastically support the dissemination of peer-reviewed scientific research results to other scientists and the public at large.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Awards Announcement -->
+                <section class="card bg-gradient-to-r from-aga-blue to-aga-blue-light text-white">
+                    <div class="card-body">
+                        <h1 class="text-2xl md:text-4xl font-bold text-center mb-4">
+                            <em>Special Event Awards</em> and the <em>Ecological, Evolutionary, and Conservation Genomics Research Awards</em>
+                        </h1>
+
+                        <h2 class="text-2xl md:text-3xl font-bold text-center mb-2">
+                            Are you ready with your 2025 Application?
+                        </h2>
+
+                        <h2 class="text-2xl md:text-3xl font-bold text-center mb-6">
+                            Deadline is 5 December 2025
+                        </h2>
+
+                        <div class="bg-white text-gray-900 rounded-lg p-6 mb-4">
+                            <h3 class="text-2xl font-bold mb-3">
+                                <a href="special-event-awards-form.html" class="text-aga-blue hover:text-aga-blue-light">Special Event Award</a>
+                            </h3>
+                            <p class="text-lg mb-2">The American Genetic Association grants awards each year to its members for support of special events that advance the mission of AGA, particularly to support students to attend the event.</p>
+                            <p class="text-lg mb-2">Eligible events include specialized workshops and short courses in topical areas of organismal genetics and genomics, but any event relevant to AGA's purpose will be considered. Events that could lead to Journal of Heredity articles will receive special consideration.</p>
+                            <p class="text-lg">Awards are between $1,000-$10,000. Funding is competitive, and applications must follow the guidelines.</p>
+                        </div>
+
+                        <div class="bg-white text-gray-900 rounded-lg p-6">
+                            <h3 class="text-2xl font-bold mb-3">
+                                <a href="eecg-awards-form.html" class="text-aga-blue hover:text-aga-blue-light">Ecological, Evolutionary, and Conservation Genomics Research Awards</a>
+                            </h3>
+                            <p class="text-lg mb-2">The American Genetic Association grants EECG Research Awards to graduate and post-doctoral researchers who are at a critical point in their research, where additional funds would allow them to conclude their research project and prepare it for publication.</p>
+                            <p class="text-lg mb-2">These awards are open to any graduate student or postdoctoral fellow who is a member of the American Genetic Association at the time of application.</p>
+                            <p class="text-lg">Awards are for up to $6,000.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- In Memoriam -->
+                <section class="card">
+                    <div class="card-body">
+                        <h1 class="text-3xl md:text-4xl font-bold text-center mb-6">In Memoriam</h1>
+
+                        <h2 class="text-xl font-bold mb-4">Read the freely available article in <em>JHered:</em></h2>
+
+                        <p class="mb-4">
+                            <em><a href="https://doi.org/10.1093/jhered/esad005" target="_blank" class="text-aga-blue hover:underline">In Memoriam: Robert K. Wayne, a pioneer of evolutionary genomics for wildlife with an emphasis on endangered species</a></em>
+                        </p>
+
+                        <div class="flex flex-wrap items-start">
+                            <img src="/user-files/rkw%203.jpg" alt="Robert K. Wayne" class="float-right ml-4 mb-4 w-full md:w-80 h-auto">
+                            <p class="text-lg">
+                                The American Genetic Association has established the <a href="donate.html" target="_blank" class="text-aga-blue hover:underline">Robert K. Wayne Conservation Scholarship and Research Fund</a> to support graduate students whose research directly benefits a threatened species. The first $6000 scholarship was awarded to Kyle Jaynes in 2023. We welcome <a href="donate.html" target="_blank" class="text-aga-blue hover:underline">donations</a> from members of our community who wish to grow the impact of this Fund in Bob's honor.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Past Presidents' Symposia -->
+                <section class="card">
+                    <div class="card-body">
+                        <h1 class="text-3xl md:text-4xl font-bold text-center mb-6">Past Presidents' Symposia</h1>
+
+                        <div class="flex flex-wrap justify-center gap-4 mb-8">
+                            <img src="/user-files/2024ConfLogo-v7-revised.png" alt="AGA 2024" class="h-40 w-auto object-contain">
+                            <img src="/user-files/AGA2022-logo.jpg" alt="AGA 2022" class="h-40 w-auto object-contain">
+                            <img src="/user-files/AGA2021-V10-WholeBackColor1.jpg" alt="AGA 2021" class="h-40 w-auto object-contain border-2">
+                            <img src="/user-files/AGA2020.jpg" alt="AGA 2020" class="h-40 w-auto object-contain">
+                        </div>
+
+                        <h2 class="text-xl font-bold text-center mb-6">
+                            <a href="agatwentytwentytwo.html" class="text-aga-blue hover:underline">AGA2022</a>,
+                            <a href="agatwentytwentyone.html" class="text-aga-blue hover:underline">AGA2021</a>, and
+                            <a href="agatwentytwenty.html" class="text-aga-blue hover:underline">AGA2020</a>
+                        </h2>
+
+                        <h2 class="text-center mb-6 text-lg">Click the links to view the programs and video recordings from these Symposia</h2>
+
+                        <h3 class="text-xl font-bold mb-4"><em>Presidents' Symposia Issues in JHered - freely available</em></h3>
+
+                        <div class="space-y-2 text-lg">
+                            <p>AGA2020: <a href="https://academic.oup.com/jhered/issue/113/1" target="_blank" class="text-aga-blue hover:underline">Genes as Environment</a> - <em>President Kimberly Hughes</em></p>
+                            <p>AGA2019: <a href="https://academic.oup.com/jhered/issue/112/1" target="_blank" class="text-aga-blue hover:underline">Sex and Asex</a> - <em>President Maria Orive</em></p>
+                            <p>AGA2018: <a href="https://academic.oup.com/jhered/issue/111/1" target="_blank" class="text-aga-blue hover:underline">Origins of Adaptive Radiation</a> - <em>President Rosemary Gillespie</em></p>
+                            <p>AGA2017: <a href="https://academic.oup.com/jhered/issue/110/4" target="_blank" class="text-aga-blue hover:underline">Evolutionary Quantitative Genetics in the Wild</a> - <em>President Anne Bronikowski</em></p>
+                            <p>AGA2016: <a href="https://academic.oup.com/jhered/issue/109/1" target="_blank" class="text-aga-blue hover:underline">Local Adaptation</a> - <em>President Lynda Delph</em></p>
+                            <p>AGA2015: <a href="https://academic.oup.com/jhered/issue/108/1" target="_blank" class="text-aga-blue hover:underline">Chromosome Evolution</a> - <em>President Katie Peichel</em></p>
+                            <p>AGA2014: <a href="https://academic.oup.com/jhered/issue/107/1" target="_blank" class="text-aga-blue hover:underline">Evolution and Plasticity</a> - <em>President Robin Waples</em></p>
+                            <p>AGA2013: <a href="https://academic.oup.com/jhered/issue/105/S1" target="_blank" class="text-aga-blue hover:underline">Speciation Continuum</a> - <em>President Kerry Shaw</em></p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Tabbed Content -->
+                <section class="card" data-tabs>
+                    <div class="flex items-center justify-between border-b border-gray-200 p-4">
+                        <div class="flex space-x-2 overflow-x-auto flex-1">
+                            <button data-tab class="px-4 py-2 font-medium text-gray-700 hover:text-aga-blue border-b-2 border-transparent hover:border-aga-blue transition-colors whitespace-nowrap" aria-selected="false" tabindex="-1">Awards Available</button>
+                            <button data-tab class="px-4 py-2 font-medium text-gray-700 hover:text-aga-blue border-b-2 border-transparent hover:border-aga-blue transition-colors whitespace-nowrap" aria-selected="false" tabindex="-1">Award Recipients</button>
+                            <button data-tab class="px-4 py-2 font-medium text-gray-700 hover:text-aga-blue border-b-2 border-transparent hover:border-aga-blue transition-colors whitespace-nowrap" aria-selected="false" tabindex="-1">Journal News</button>
+                            <button data-tab class="px-4 py-2 font-medium text-gray-700 hover:text-aga-blue border-b-2 border-transparent hover:border-aga-blue transition-colors whitespace-nowrap" aria-selected="false" tabindex="-1">AGA News</button>
+                        </div>
+                        <div class="flex space-x-2 ml-4">
+                            <button data-tab-prev class="p-2 text-aga-blue hover:bg-gray-100 rounded transition-colors" aria-label="Previous tab">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                                </svg>
+                            </button>
+                            <button data-tab-next class="p-2 text-aga-blue hover:bg-gray-100 rounded transition-colors" aria-label="Next tab">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Tab Panels -->
+                    <div class="card-body">
+                        <!-- Awards Available Panel -->
+                        <div data-panel class="space-y-6" aria-hidden="true">
+                            <article>
+                                <h3 class="text-xl font-bold mb-2">Evolutionary, Ecological, or Conservation Genomics (EECG) Research Awards 2024</h3>
+                                <p class="mb-2">The AGA's EECG Research Awards provide funds to support the final stages of genomic research projects for grad students and postdocs.</p>
+                                <a href="eecg-awards-form.html" target="_blank" class="text-aga-blue hover:underline font-medium">Learn More...</a>
+                            </article>
+
+                            <article>
+                                <h3 class="text-xl font-bold mb-2">Special Events Awards 2024</h3>
+                                <img src="/img/assets/news/pexels-fauxels-3183172%20copy.jpg" alt="Special Events" class="float-left mr-4 mb-2 w-32 h-32 object-cover rounded">
+                                <p class="mb-2">The AGA grants awards to its members for support of special events that advance its mission, particularly to enable students to attend the event.</p>
+                                <a href="special-event-awards-form.html" target="_blank" class="text-aga-blue hover:underline font-medium">Learn More...</a>
+                            </article>
+
+                            <article>
+                                <h3 class="text-xl font-bold mb-2">Did you publish in Journal of Heredity this past year?</h3>
+                                <p class="mb-2">The Outstanding Student Paper Award for the best student paper published in AGA's Journal of Heredity includes a cash prize of $2,000.</p>
+                                <a href="news-article/23.html" class="text-aga-blue hover:underline font-medium">Learn More...</a>
+                            </article>
+
+                            <p class="mt-6">
+                                <a href="https://www.theaga.org/news/announcements-and-awards" class="text-aga-blue hover:underline font-bold">Read All Awards Available</a>
+                            </p>
+                        </div>
+
+                        <!-- Award Recipients Panel -->
+                        <div data-panel class="space-y-6" aria-hidden="true">
+                            <article>
+                                <h3 class="text-xl font-bold mb-2">Announcing the 2024 Evolutionary, Ecological, and Conservation Genomics (EECG) Research Award Recipients</h3>
+                                <p class="mb-2">10 + 1 Awards!</p>
+                                <a href="news-article/93.html" class="text-aga-blue hover:underline font-medium">Learn More...</a>
+                            </article>
+
+                            <article>
+                                <h3 class="text-xl font-bold mb-2">2024 Best Student Paper Award Winner</h3>
+                                <img src="/img/assets/news/fjaWQfyLqEGxCpmrHKhQYpTCcN9pCKZ6tZRvf9y4.jpg" alt="Old Tom" class="float-left mr-4 mb-2 w-32 h-32 object-cover rounded">
+                                <p class="mb-2">"Ancestry testing of "Old Tom," a killer whale central to mutualistic interactions with human whalers"</p>
+                                <a href="news-article/92.html" class="text-aga-blue hover:underline font-medium">Learn More...</a>
+                            </article>
+
+                            <article>
+                                <h3 class="text-xl font-bold mb-2">2024 Special Events Award</h3>
+                                <img src="/img/assets/news/ppSXAxX5uSlPFqROi306f22aCU4zEey65m1BQVNv.jpg" alt="Special Events" class="float-left mr-4 mb-2 w-32 h-32 object-cover rounded">
+                                <p class="mb-2">Four events funded this year</p>
+                                <a href="news-article/91.html" class="text-aga-blue hover:underline font-medium">Learn More...</a>
+                            </article>
+
+                            <article>
+                                <h3 class="text-xl font-bold mb-2">Announcing the 2023 Evolutionary, Ecological, and Conservation Genomics (EECG) Research Award Recipients</h3>
+                                <img src="/img/assets/news/tnPPPTTYQ6LYFxzwYcuCOXNlyLCt0edEhqqhBqtD.png" alt="EECG 2023" class="float-left mr-4 mb-2 w-32 h-32 object-cover rounded">
+                                <p class="mb-2">Six PhD students and four postdocs receive funding.</p>
+                                <a href="news-article/67.html" class="text-aga-blue hover:underline font-medium">Learn More...</a>
+                            </article>
+
+                            <article>
+                                <h3 class="text-xl font-bold mb-2">2023 Special Events Awards</h3>
+                                <img src="/img/assets/news/3S6fBNuJxoLE8503loqpr6Rd10Watas07cxWTi0d.png" alt="Special Events 2023" class="float-left mr-4 mb-2 w-32 h-32 object-cover rounded">
+                                <p class="mb-2">Two US workshops and one student-led Canadian conference received funding</p>
+                                <a href="news-article/50.html" class="text-aga-blue hover:underline font-medium">Learn More...</a>
+                            </article>
+
+                            <article>
+                                <h3 class="text-xl font-bold mb-2">2023 Student-Authored Paper Award Outcome</h3>
+                                <img src="/img/assets/news/t6kZe8qDQeXQWbn5RyOerXCcQ54DOLs8cqWvNbGn.jpg" alt="Student Award 2023" class="float-left mr-4 mb-2 w-32 h-32 object-cover rounded">
+                                <p class="mb-2">Alison Miller wins award for best student-authored paper in the 2022 volume of Journal of Heredity</p>
+                                <a href="news-article/89.html" class="text-aga-blue hover:underline font-medium">Learn More...</a>
+                            </article>
+
+                            <p class="mt-6">
+                                <a href="news/award-recipients.html" class="text-aga-blue hover:underline font-bold">Read All Award Recipients</a>
+                            </p>
+                        </div>
+
+                        <!-- Journal News Panel -->
+                        <div data-panel class="space-y-6" aria-hidden="true">
+                            <article>
+                                <h3 class="text-xl font-bold mb-2">New blog post: The Proof is in the Pedigree</h3>
+                                <img src="/img/assets/news/condor%20wingspread.jpg" alt="Condor" class="float-left mr-4 mb-2 w-32 h-32 object-cover rounded">
+                                <p class="mb-2">Learn about how Oliver Ryder and his team at the San Diego Zoo Wildlife Alliance made the incredible discovery of condor parthenogenesis. Research article in the December 2021 issue of Journal of Heredity.</p>
+                                <a href="https://blog.theaga.org/behind-the-science-the-proof-is-in-the-pedigree/" target="_blank" class="text-aga-blue hover:underline font-medium">Learn More...</a>
+                            </article>
+
+                            <article>
+                                <h3 class="text-xl font-bold mb-2">The 3 domains of conservation genetics</h3>
+                                <img src="/img/assets/news/vikings.jpg" alt="Vikings" class="float-left mr-4 mb-2 w-32 h-32 object-cover rounded">
+                                <p class="mb-2">Boldly visualized by Brian Bowen with an Orlog metaphor, wherein the actions of the past and present influence future outcomes. FREE online</p>
+                                <a href="http://jhered.oxfordjournals.org/content/107/4/309.full" target="_blank" class="text-aga-blue hover:underline font-medium">Learn More...</a>
+                            </article>
+
+                            <article>
+                                <h3 class="text-xl font-bold mb-2">Online tool speeds response to elephant poaching by tracing ivory to source</h3>
+                                <img src="/img/assets/news/m_cover-5.png" alt="Elephant" class="float-left mr-4 mb-2 w-32 h-32 object-cover rounded">
+                                <p class="mb-2">Read the JHered article for free at https://doi.org/10.1093/jhered/esz058</p>
+                                <a href="https://www.sciencedaily.com/releases/2019/11/191101081956.htm" target="_blank" class="text-aga-blue hover:underline font-medium">Learn More...</a>
+                            </article>
+
+                            <article>
+                                <h3 class="text-xl font-bold mb-2">Genetics show that the Florida kingsnake is really 3 species</h3>
+                                <img src="/img/assets/news/snake%20figure%201.jpg" alt="Kingsnake" class="float-left mr-4 mb-2 w-32 h-32 object-cover rounded">
+                                <p class="mb-2">Read the JHered article by Krysko et al. FOR FREE https://doi.org/10.1093/jhered/esw086</p>
+                                <a href="https://www.flmnh.ufl.edu/pressroom/2017/02/06/researchers-rename-three-state-kingsnakes-as-separate-species/" target="_blank" class="text-aga-blue hover:underline font-medium">Learn More...</a>
+                            </article>
+
+                            <p class="mt-6">
+                                <a href="news/journal-news.html" class="text-aga-blue hover:underline font-bold">Read All Journal News</a>
+                            </p>
+                        </div>
+
+                        <!-- AGA News Panel -->
+                        <div data-panel class="space-y-6" aria-hidden="true">
+                            <article>
+                                <h3 class="text-xl font-bold mb-2">New Organization Brings Together Top Researchers to Sequence the Genomes of Invertebrates</h3>
+                                <p class="mb-2">FORT LAUDERDALE-DAVIE, Fla. – Pop Quiz: what creatures make up more than 70% of the approximately 1.9 million described species on earth and have long served as model organisms in many areas of biology? If you guessed invertebrates, you're right!</p>
+                                <a href="news-article/6.html" class="text-aga-blue hover:underline font-medium">Learn More...</a>
+                            </article>
+
+                            <p class="mt-6">
+                                <a href="news/aga-news.html" class="text-aga-blue hover:underline font-bold">Read All AGA News</a>
+                            </p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Right Column - Sidebar -->
+            <aside class="lg:col-span-1 space-y-6">
+                <!-- Journal of Heredity -->
+                <section class="card">
+                    <div class="bg-aga-dark text-white p-4">
+                        <h2 class="text-2xl font-bold">About the Journal</h2>
+                    </div>
+                    <div class="card-body">
+                        <img src="/assets/journal-covers/dRE4MaJcudP383dOHvbJa1mfWltY42L0JZVMBcV9.jpg" alt="Journal of Heredity cover" class="w-full mb-4 rounded">
+
+                        <a href="https://academic.oup.com/jhered/issue/116/5" target="_blank" class="block mb-4">
+                            <img src="/images/button-view-current.gif" alt="View Current Issue" class="mx-auto">
+                        </a>
+
+                        <h2 class="text-xl font-bold text-center mb-4">
+                            <a href="https://academic.oup.com/jhered/issue/116/5" target="_blank" class="text-aga-blue hover:underline">Issue 116_5 now Online!</a>
+                        </h2>
+
+                        <p class="text-center">
+                            Check out our herps this issue - our <a href="https://academic.oup.com/jhered/article/116/5/617/8121470?searchresult=1" target="_blank" class="text-aga-blue hover:underline">Editor's Choice article</a> by Hogan et al., untangles chemoreceptors in rattlesnakes, while our cover this issue is courtesy of Powell et al., who provide <a href="https://academic.oup.com/jhered/article/116/5/571/7810882" target="_blank" class="text-aga-blue hover:underline">a reference genome for the Australian water dragon</a>
+                        </p>
+                    </div>
+                </section>
+
+                <!-- News Section -->
+                <section class="card">
+                    <div class="card-body">
+                        <h2 class="text-3xl font-bold text-center mb-4"><span class="text-red-600">!!</span> NEWS <span class="text-red-600">!!</span></h2>
+
+                        <h2 class="text-xl font-bold text-center mb-4">
+                            <span class="text-gray-900">William Murphy</span>, Journal of Heredity Editor in Chief, <span class="text-gray-900">has been named SEC Professor of the Year!</span>
+                        </h2>
+
+                        <img src="https://theaga.org/user-files/Murph%20SEC%20prof%20copy.jpg" alt="William Murphy" class="w-full h-auto mb-4 rounded">
+
+                        <p class="text-center text-2xl mb-6">
+                            Read all about it <a href="https://www.secsports.com/news/2025/03/texas-ams-murphy-named-sec-professor-of-the-year" target="_blank" class="text-aga-blue hover:underline">here</a>
+                        </p>
+
+                        <div class="bg-aga-blue text-white p-4 rounded mb-6">
+                            <h2 class="text-2xl font-bold text-center mb-4">Workshops & Meetings</h2>
+                        </div>
+
+                        <h2 class="text-xl font-bold text-center mb-2">Have a meeting in need of funding support?</h2>
+                        <p class="text-center text-lg mb-2">Apply now for an AGA</p>
+                        <p class="text-center text-2xl mb-6">
+                            <a href="special-event-awards-form.html" class="text-aga-blue hover:underline font-bold">Special Event Award</a>!
+                        </p>
+
+                        <hr class="my-6">
+
+                        <h2 class="text-2xl font-bold text-center mb-6">News from Current<br>SEA Awardees</h2>
+
+                        <article class="mb-6">
+                            <h3 class="text-xl font-bold mb-2">Recent Advances in Conservation Genetics (ConGen Global-2025)</h3>
+                            <img src="https://theaga.org/user-files/ConGen2024.png" alt="ConGen 2024" class="w-48 h-48 mx-auto mb-4">
+                            <p class="mb-2">This course hosted 25-30 students, especially welcoming to participants from African countries, and 15-20 faculty from around the world. The course featured the latest methods, interpretations, and applications of genetic/genomic analyses for the conservation of endangered species, and the faculty shared their expertise in technologies, research strategies, and translation featuring population-based studies.</p>
+                            <p class="mb-2">
+                                <a href="https://conservationgenetics.org/congen2025" target="_blank" class="text-aga-blue hover:underline">https://conservationgenetics.org/congen2025</a>
+                            </p>
+                            <p>
+                                Read the final report on the conference <a href="https://theaga.org/user-files/Final%20REPORT_Obrien_ConGen-2025%20CCF%20.pdf" class="text-aga-blue hover:underline">here</a> to see what you missed!
+                            </p>
+                        </article>
+
+                        <article class="mb-6">
+                            <h3 class="text-xl font-bold mb-2">Genomics of Marine Mammals IV (G4) Workshop</h3>
+                            <img src="https://theaga.org/user-files/SMM%20conference%20logo.png" alt="SMM Conference" class="w-full h-auto mb-4">
+                            <p class="mb-2">This two-day workshop will be part of the 25th Biennial Marine Mammal Conference in Perth this year, accommodating up to 150 experts and novices. It will focus on advancements in marine mammal genomics, highlighting novel methods and applications in evolution, conservation, and emerging diseases, and integrating genomics with traditional knowledge.</p>
+                            <p>
+                                <a href="https://www.smmconference.org/" target="_blank" class="text-aga-blue hover:underline">https://www.smmconference.org/</a>
+                            </p>
+                        </article>
+
+                        <article class="mb-6">
+                            <h3 class="text-xl font-bold mb-2">Resources for Inclusive Evolution Education (RIE2)</h3>
+                            <p class="mb-2">Do you want to create interdisciplinary teaching resources for inclusive undergraduate evolution education? The Resources for Inclusive Evolution Education (#RIE2) working group is looking for participants to do just that!</p>
+                            <p>Please contact <a href="mailto:inclusive.evoedu@gmail.com" class="text-aga-blue hover:underline">inclusive.evoedu@gmail.com</a> with any questions, suggestions, or if you'd like to contribute further to this effort.</p>
+                        </article>
+
+                        <div class="bg-aga-blue text-white p-4 rounded mb-6">
+                            <h2 class="text-2xl font-bold">AGA Member Benefits</h2>
+                        </div>
+
+                        <ul class="list-disc list-inside space-y-2 mb-6">
+                            <li><em>Free Journal of Heredity access and discounted Open Access</em></li>
+                            <li><em>Eligibility for awards</em></li>
+                            <li><em>Discounted symposium registration and access to presentation videos</em></li>
+                            <li><em>AGA Newsletter</em></li>
+                            <li><em>Supporting a society that supports your community</em></li>
+                        </ul>
+
+                        <h2 class="text-xl font-bold text-center mb-4">
+                            <a href="membership.html" class="text-aga-blue hover:underline">Join the AGA or renew your membership</a>
+                        </h2>
+
+                        <p class="text-center mb-4">
+                            Any questions? Contact the Managing Editor at <a href="mailto:theaga@theaga.org" class="text-aga-blue hover:underline">theaga@theaga.org</a>.
+                        </p>
+
+                        <h2 class="text-lg font-bold mb-4">
+                            Read the AGA Council's statements on diversity - see <a href="about-the-association.html" target="_blank" class="text-aga-blue hover:underline">About the AGA</a>.
+                        </h2>
+                    </div>
+                </section>
+            </aside>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-aga-dark text-white mt-16">
+        <div class="container-custom py-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h2 class="text-2xl font-bold mb-4">Contact</h2>
+                    <p class="font-bold mb-2">General Inquiries/Feedback</p>
+                    <p class="mb-4">
+                        If you have any question about our products or website, please email:<br>
+                        <a href="mailto:theaga@theaga.org" class="text-aga-blue-light hover:underline">theaga@theaga.org</a>
+                    </p>
+                </div>
+                <div class="text-center md:text-right">
+                    <div class="flex justify-center md:justify-end space-x-4 mb-4">
+                        <a href="https://twitter.com/theAGA_org" target="_blank" rel="noopener" class="hover:opacity-80 transition-opacity">
+                            <img src="/images/twitter.png" alt="Twitter" class="h-8">
+                        </a>
+                        <a href="https://www.facebook.com/theAGA.org/" target="_blank" rel="noopener" class="hover:opacity-80 transition-opacity">
+                            <img src="/images/facebook.gif" alt="Facebook" class="h-8">
+                        </a>
+                        <a href="https://www.instagram.com/theaga_org/" target="_blank" rel="noopener" class="hover:opacity-80 transition-opacity">
+                            <img src="/images/instagram.png" alt="Instagram" class="h-8">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-sm">
+                <p class="mb-2">copyright &copy; 2015-2025, American Genetic Association. All Rights Reserved.</p>
+                <p>Website by <a href="http://www.rareheron.com" target="_blank" class="text-aga-blue-light hover:underline">Rareheron Web Design</a>, Newport, OR</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script type="module" src="./scripts/main.js"></script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-142288143-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-142288143-1');
+    </script>
+</body>
+</html>
