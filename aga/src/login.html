@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AGA Member Login</title>
+    <link rel="stylesheet" href="./styles/main.css">
+</head>
+<body>
+    <main class="container-custom py-16">
+        <div class="card max-w-md mx-auto">
+            <div class="card-body">
+                <h1 class="text-3xl font-bold mb-6 text-center">Member Login</h1>
+                <p class="text-center mb-8">Access your AGA member account</p>
+                <form class="space-y-4">
+                    <div>
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-input" placeholder="your@email.com" required>
+                    </div>
+                    <div>
+                        <label class="form-label">Password</label>
+                        <input type="password" class="form-input" placeholder="••••••••" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-full">Login</button>
+                    <p class="text-center text-sm">
+                        <a href="#" class="text-aga-blue hover:underline">Forgot password?</a>
+                    </p>
+                    <p class="text-center text-sm">
+                        Not a member? <a href="members.html" class="text-aga-blue hover:underline">Join now</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </main>
+    <script type="module" src="./scripts/main.js"></script>
+</body>
+</html>
